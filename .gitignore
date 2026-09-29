@@ -1,0 +1,18 @@
+# Data (keep folder structure only)
+data/**
+!data/**/
+!data/**/.gitkeep
+*.csv
+*.parquet
+*.xlsx
+*.json.gz
+
+# Secrets & databases
+.env
+*.duckdb
+*.duckdb.wal
+
+# Python
+__pycache__/
+.pytest_cache/
+.ruff_cache/
