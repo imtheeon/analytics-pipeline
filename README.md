@@ -93,6 +93,17 @@ It shows KPI cards and five tabs, all filterable by state and incident type in t
 
 The theme lives in `.streamlit/config.toml`.
 
+There is also a static [Evidence](https://evidence.dev) report in `evidence-report/`, with four pages: Overview (KPIs and trends), Fraud (by severity, incident type and a heatmap), Geography (by state) and Insights (written findings and caveats calculated in SQL). It uses the open-source Evidence framework (`@evidence-dev/evidence` 40), which reads `data/processed/claims.duckdb` directly. It needs Node.js 18+. Run the pipeline first, then:
+
+```bash
+cd evidence-report
+npm install
+npm run sources
+npm run dev
+```
+
+`npm run sources` copies the claims table into the report, so run it again after the pipeline changes the data. `npm run dev` opens the report at http://localhost:3000. For a static site in `evidence-report/build/`, run `npm run build`. Anonymous usage stats are turned off in `evidence.settings.json`.
+
 Run the tests and the linter:
 
 ```bash

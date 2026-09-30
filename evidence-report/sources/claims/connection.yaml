@@ -1,0 +1,5 @@
+# The cleaned claims database built by the analytics pipeline (run it first).
+name: claims
+type: duckdb
+options:
+  filename: ../../../data/processed/claims.duckdb

@@ -1,0 +1,41 @@
+appearance:
+  default: light
+  switcher: true
+
+theme:
+  colorPalettes:
+    default:
+      light: ["#1f3a5f", "#3d7cc9", "#a9c6e8", "#6b8fb5", "#d62728", "#9aa5b1"]
+      dark: ["#7fb0e8", "#3d7cc9", "#a9c6e8", "#6b8fb5", "#f87171", "#9aa5b1"]
+  colorScales:
+    default:
+      light: ["#eef3fa", "#1f3a5f"]
+      dark: ["#1e293b", "#7fb0e8"]
+  colors:
+    primary:
+      light: "#1f3a5f"
+      dark: "#7fb0e8"
+    accent:
+      light: "#3d7cc9"
+      dark: "#93c5fd"
+    base:
+      light: "#ffffff"
+      dark: "#0b1220"
+    info:
+      light: "#3d7cc9"
+      dark: "#7fb0e8"
+    positive:
+      light: "#16a34a"
+      dark: "#4ade80"
+    warning:
+      light: "#d97706"
+      dark: "#fbbf24"
+    negative:
+      light: "#d62728"
+      dark: "#f87171"
+
+plugins:
+  components:
+    "@evidence-dev/core-components": {}
+  datasources:
+    "@evidence-dev/duckdb": {}
