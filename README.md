@@ -77,6 +77,12 @@ conda run -n data-analysis python -m industries.insurance.report
 conda run -n data-analysis python -m industries.insurance.export
 ```
 
+Open the interactive dashboard (KPIs and charts, filterable by state and incident type). It reads `data/processed/claims.duckdb`, so run the pipeline first:
+
+```bash
+conda run --no-capture-output -n data-analysis streamlit run dashboard.py
+```
+
 Run the tests and the linter:
 
 ```bash
