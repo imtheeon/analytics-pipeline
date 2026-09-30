@@ -4,7 +4,7 @@
 Scaffold project, pick an insurance claims dataset, push to a private GitHub repo.
 
 ## Next Step
-Next: analyze step (SQL queries on claims.duckdb).
+Next: report step (charts + written summary from reports/analysis_*.csv).
 
 ### Phase 1: settings.json model opusplan → sonnet
 **Status:** complete
@@ -34,4 +34,7 @@ Next: analyze step (SQL queries on claims.duckdb).
 **Status:** complete
 
 ### Phase 8: store step (core/store.py, industries/insurance/store.py -> data/processed/claims.duckdb)
+**Status:** complete
+
+### Phase 9: analyze step (core/analyze.py, industries/insurance/queries/*.sql -> reports/analysis_*.csv)
 **Status:** complete
