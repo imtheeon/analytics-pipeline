@@ -2,7 +2,7 @@
 
 import runpy
 
-STEPS = ["clean", "validate", "store", "analyze", "report"]
+STEPS = ["clean", "validate", "store", "analyze", "report", "export"]
 
 
 def run_pipeline(steps: list[str] = STEPS) -> None:

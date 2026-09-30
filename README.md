@@ -3,7 +3,7 @@
 A small, reusable data pipeline in Python, pandas 3.0 and DuckDB:
 
 ```
-load → clean → validate → store (DuckDB) → analyze (SQL) → report (HTML)
+load → clean → validate → store (DuckDB) → analyze (SQL) → report (HTML) → export (Power BI CSVs)
 ```
 
 Generic steps live in `core/` and work on any CSV. Industry rules live in `industries/<name>/`.
@@ -52,6 +52,7 @@ The full report with interactive charts is [`reports/insurance_claims_report.htm
 | Store | `core/store.py` | Writes `claims` and `validation_report` to `data/processed/claims.duckdb`. Re-running replaces the tables. |
 | Analyze | `core/analyze.py`, `industries/insurance/queries/*.sql` | Runs every `.sql` file read-only and saves results to `reports/analysis_*.csv`. |
 | Report | `core/report.py`, `industries/insurance/report.py` | Builds one HTML page with charts and tables. Refuses to run if validation failed. |
+| Export | `core/export.py`, `industries/insurance/export.py` | Writes `claims_clean.csv` and one CSV per summary query to `reports/powerbi/` for Power BI (ISO dates, no index). Git-ignored. |
 
 ## Run it
 
@@ -73,6 +74,7 @@ conda run -n data-analysis python -m industries.insurance.validate
 conda run -n data-analysis python -m industries.insurance.store
 conda run -n data-analysis python -m industries.insurance.analyze
 conda run -n data-analysis python -m industries.insurance.report
+conda run -n data-analysis python -m industries.insurance.export
 ```
 
 Run the tests and the linter:

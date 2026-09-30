@@ -17,3 +17,12 @@ def test_runs_steps_in_order_and_stops_on_failure(monkeypatch):
     with pytest.raises(ValueError):
         run_pipeline()
     assert ran == ["clean", "validate"]
+
+
+def test_export_runs_last(monkeypatch):
+    ran = []
+    monkeypatch.setattr(
+        runpy, "run_module", lambda module, run_name: ran.append(module)
+    )
+    run_pipeline()
+    assert ran[-1] == "industries.insurance.export"
