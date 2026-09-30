@@ -11,7 +11,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 from core.store import DB_PATH
-from industries.insurance.demo_data import DEMO, summarize
+from industries.insurance.demo_data import DEMO, OTHER, summarize
 from industries.insurance.report import HIGHLIGHT, ranked_bar
 
 NAVY, BLUE, LIGHT_BLUE = "#1f3a5f", "#3d7cc9", "#a9c6e8"
@@ -87,7 +87,7 @@ def insights(t: dict[str, pd.DataFrame]) -> dict[str, list[str]]:
         sum=("total_claim_amount", "sum"), size=("claims", "sum")
     )
     cost["mean"] = cost["sum"] / cost["size"]
-    top = cost["mean"].idxmax()
+    top = cost["mean"].drop(OTHER, errors="ignore").idxmax()
     key = [
         (
             f"{by_sev.index[-1]} claims have the highest fraud rate at "
@@ -115,8 +115,10 @@ def insights(t: dict[str, pd.DataFrame]) -> dict[str, list[str]]:
             )
         ]
 
-    combos = sev.groupby(["incident_type", "incident_severity"]).agg(
-        sum=("fraud_claims", "sum"), size=("claims", "sum")
+    combos = (
+        sev[sev["incident_type"] != OTHER]
+        .groupby(["incident_type", "incident_severity"])
+        .agg(sum=("fraud_claims", "sum"), size=("claims", "sum"))
     )
     combos["mean"] = combos["sum"] / combos["size"]
     combos = combos[combos["size"] >= MIN_CLAIMS]
@@ -289,12 +291,14 @@ def main() -> None:
         )
         c2.plotly_chart(
             ranked_bar(
-                fraud_rate_by(df, "incident_type"),
+                fraud_rate_by(df[df["incident_type"] != OTHER], "incident_type"),
                 "incident_type",
                 "fraud_pct",
                 "Fraud rate by incident type (%)",
             ).update_layout(xaxis_title="Fraud rate (%)")
         )
+        if (df["incident_type"] == OTHER).any():
+            c2.caption(f'"{OTHER}" is left out: it mixes incident types.')
         heat = t["by_state_type_severity"].pivot_table(
             index="incident_type",
             columns="incident_severity",

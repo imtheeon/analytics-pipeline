@@ -4,7 +4,7 @@ import pandas as pd
 from streamlit.testing.v1 import AppTest
 
 import dashboard
-from industries.insurance.demo_data import summarize
+from industries.insurance.demo_data import OTHER, summarize
 
 
 def claims(days: int) -> pd.DataFrame:
@@ -55,6 +55,16 @@ def test_insights_handle_short_and_small_selections():
     notes = dashboard.insights(summarize(claims(5)))
     assert "too few to compare" in notes["Trends"][0]
     assert "none is singled out" in notes["What to watch next"][0]
+
+
+def test_insights_never_rank_the_other_group_first():
+    df = claims(60)
+    other = df.assign(
+        incident_type=OTHER, total_claim_amount=99000, fraud_reported=True
+    )
+    notes = dashboard.insights(summarize(pd.concat([df, other.head(20)])))
+    assert notes["Key findings"][1].startswith("Vehicle Theft claims cost the most")
+    assert notes["What to watch next"][0].startswith("Vehicle Theft claims with")
 
 
 def test_demo_mode_runs_without_the_database(monkeypatch, tmp_path):

@@ -6,7 +6,7 @@
 
 **Key findings:** "Major Damage" claims have a 60.5% fraud rate against 7–13% for other severities, collisions cost the most per claim, and NY, SC and WV account for 74% of claim cost.
 
-**Live demo:** [link coming soon](#) (runs on aggregated data only)
+**Live demo:** [analytics-pipeline-tstz9g5ixk76b83f8nfaru.streamlit.app](https://analytics-pipeline-tstz9g5ixk76b83f8nfaru.streamlit.app/) (runs on aggregated data only)
 
 ## Screenshots
 
