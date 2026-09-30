@@ -6,6 +6,7 @@ data/**
 *.parquet
 *.xlsx
 *.json.gz
+reports/powerbi/
 
 # Secrets & databases
 .env
