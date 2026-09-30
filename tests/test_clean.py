@@ -37,6 +37,11 @@ def test_strip_text():
     assert strip_text(df)["city"].tolist() == ["Columbus", "Arlington"]
 
 
+def test_strip_text_blank_becomes_missing():
+    df = pd.DataFrame({"incident_type": ["Parked Car", "   "]})
+    assert strip_text(df)["incident_type"].isna().tolist() == [False, True]
+
+
 def test_yes_no_to_bool_keeps_missing_and_skips_other_text():
     df = pd.DataFrame(
         {

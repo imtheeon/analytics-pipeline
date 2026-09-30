@@ -31,9 +31,11 @@ def drop_duplicates(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def strip_text(df: pd.DataFrame) -> pd.DataFrame:
-    """Trim leading/trailing spaces in text columns."""
+    """Trim leading/trailing spaces in text columns; blank-only cells become missing."""
     text = df.select_dtypes("string").columns
-    return df.assign(**{col: df[col].str.strip() for col in text})
+    return df.assign(
+        **{col: df[col].str.strip().mask(lambda s: s == "") for col in text}
+    )
 
 
 def yes_no_to_bool(df: pd.DataFrame) -> pd.DataFrame:
