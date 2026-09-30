@@ -9,3 +9,4 @@
 - validate built; 22 tests pass; 6 error rules pass, 2 warns (rows 290 umbrella<0, 578 incident before bind)
 - store built; 24 tests pass; claims (1000 rows) + validation_report in claims.duckdb, re-run replaces
 - analyze built; 26 tests pass; 4 SQL queries; totals cross-check (1000 claims, 247 fraud, 52,761,940 amount)
+- report built; 28 tests pass; validate-data review: numbers recomputed in pandas match; fixed week-start date range + partial week in chart; added source caveat

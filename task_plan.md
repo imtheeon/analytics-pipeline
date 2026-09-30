@@ -4,7 +4,7 @@
 Scaffold project, pick an insurance claims dataset, push to a private GitHub repo.
 
 ## Next Step
-Next: report step (charts + written summary from reports/analysis_*.csv).
+Next: optional — one-command run_pipeline, README with results.
 
 ### Phase 1: settings.json model opusplan → sonnet
 **Status:** complete
@@ -37,4 +37,7 @@ Next: report step (charts + written summary from reports/analysis_*.csv).
 **Status:** complete
 
 ### Phase 9: analyze step (core/analyze.py, industries/insurance/queries/*.sql -> reports/analysis_*.csv)
+**Status:** complete
+
+### Phase 10: report step (core/report.py, industries/insurance/report.py -> reports/insurance_claims_report.html)
 **Status:** complete

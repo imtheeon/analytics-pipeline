@@ -1,6 +1,8 @@
--- Weekly claim volume and cost (data covers 2015-01-01 to 2015-03-01; first/last weeks are partial).
+-- Weekly claim volume and cost; first_day/last_day show which weeks are partial.
 SELECT
     date_trunc('week', incident_date)::DATE AS week_start,
+    min(incident_date)::DATE AS first_day,
+    max(incident_date)::DATE AS last_day,
     count(*) AS claims,
     sum(total_claim_amount)::BIGINT AS total_amount,
     round(avg(total_claim_amount)) AS avg_amount
