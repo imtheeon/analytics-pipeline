@@ -3,6 +3,34 @@ title: Geography
 sidebar_position: 3
 ---
 
+```sql states
+select distinct incident_state from claims.claims order by all
+```
+
+```sql incident_types
+select distinct incident_type from claims.claims order by all
+```
+
+<Dropdown data={states} name=state value=incident_state title="State" multiple=true selectAllByDefault=true />
+<Dropdown data={incident_types} name=incident_type value=incident_type title="Incident type" multiple=true selectAllByDefault=true />
+
+```sql filtered
+select *
+from claims.claims
+where incident_state in ${inputs.state.value}
+    and incident_type in ${inputs.incident_type.value}
+```
+
+```sql selection
+select count(*) as claims from ${filtered}
+```
+
+{#if selection.length && selection[0].claims == 0}
+
+<Alert status=info>No claims match the selected filters.</Alert>
+
+{:else}
+
 ```sql by_state
 select
     incident_state,
@@ -11,7 +39,7 @@ select
     sum(total_claim_amount) / sum(sum(total_claim_amount)) over () as cost_share,
     avg(total_claim_amount) as avg_claim,
     avg(fraud_reported::int) as fraud_rate
-from claims.claims
+from ${filtered}
 group by all
 order by claim_cost desc
 ```
@@ -26,15 +54,19 @@ select
 from ${by_state}
 ```
 
+{#if summary.length}
+
 **{summary[0].top_state}** has the most claim cost: {summary[0].top_claims} claims and {summary[0].top_share} of the total.
 The smallest state, **{summary[0].small_state}**, has only {summary[0].small_claims} claims, so treat its rates with caution.
+
+{/if}
 
 <Grid cols=2>
     <BarChart
         data={by_state}
         x=incident_state
         y=claim_cost
-        yFmt=usd1m
+        yFmt=usd
         swapXY=true
         labels=true
         title="Claim cost by state"
@@ -60,3 +92,5 @@ The smallest state, **{summary[0].small_state}**, has only {summary[0].small_cla
     <Column id=avg_claim title="Average claim" fmt=usd0 />
     <Column id=fraud_rate title="Fraud rate" fmt=pct1 contentType=colorscale />
 </DataTable>
+
+{/if}

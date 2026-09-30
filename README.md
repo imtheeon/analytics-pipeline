@@ -93,7 +93,7 @@ It shows KPI cards and five tabs, all filterable by state and incident type in t
 
 The theme lives in `.streamlit/config.toml`.
 
-There is also a static [Evidence](https://evidence.dev) report in `evidence-report/`, with four pages: Overview (KPIs and trends), Fraud (by severity, incident type and a heatmap), Geography (by state) and Insights (written findings and caveats calculated in SQL). It uses the open-source Evidence framework (`@evidence-dev/evidence` 40), which reads `data/processed/claims.duckdb` directly. It needs Node.js 18+. Run the pipeline first, then:
+There is also a static [Evidence](https://evidence.dev) report in `evidence-report/`, with four pages: Overview (KPIs and trends), Fraud (by severity, incident type and a heatmap), Geography (by state) and Insights (written findings and caveats calculated in SQL). Every page has State and Incident type filters. It uses the open-source Evidence framework (`@evidence-dev/evidence` 40), which reads `data/processed/claims.duckdb` directly. It needs Node.js 18+. Run the pipeline first, then:
 
 ```bash
 cd evidence-report

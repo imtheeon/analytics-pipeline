@@ -3,6 +3,34 @@ title: Fraud
 sidebar_position: 2
 ---
 
+```sql states
+select distinct incident_state from claims.claims order by all
+```
+
+```sql incident_types
+select distinct incident_type from claims.claims order by all
+```
+
+<Dropdown data={states} name=state value=incident_state title="State" multiple=true selectAllByDefault=true />
+<Dropdown data={incident_types} name=incident_type value=incident_type title="Incident type" multiple=true selectAllByDefault=true />
+
+```sql filtered
+select *
+from claims.claims
+where incident_state in ${inputs.state.value}
+    and incident_type in ${inputs.incident_type.value}
+```
+
+```sql selection
+select count(*) as claims from ${filtered}
+```
+
+{#if selection.length && selection[0].claims == 0}
+
+<Alert status=info>No claims match the selected filters.</Alert>
+
+{:else}
+
 "Fraud" here means the dataset's `fraud_reported` label, not a proven outcome.
 
 ```sql fraud_kpis
@@ -13,7 +41,7 @@ select
     avg(total_claim_amount) filter (where not fraud_reported) as avg_other_claim,
     avg(total_claim_amount) filter (where fraud_reported)
         / avg(total_claim_amount) filter (where not fraud_reported) - 1 as fraud_premium
-from claims.claims
+from ${filtered}
 ```
 
 <BigValue data={fraud_kpis} value=fraud_claims title="Claims flagged as fraud" fmt=num0 />
@@ -36,7 +64,7 @@ select
     incident_severity,
     count(*) as claims,
     avg(fraud_reported::int) as fraud_rate
-from claims.claims
+from ${filtered}
 group by all
 order by fraud_rate desc
 ```
@@ -46,7 +74,7 @@ select
     incident_type,
     count(*) as claims,
     avg(fraud_reported::int) as fraud_rate
-from claims.claims
+from ${filtered}
 group by all
 order by fraud_rate desc
 ```
@@ -88,7 +116,7 @@ select
     end as severity_order,
     count(*) as claims,
     avg(fraud_reported::int) as fraud_rate
-from claims.claims
+from ${filtered}
 group by all
 order by severity_order, incident_type
 ```
@@ -110,3 +138,5 @@ order by severity_order, incident_type
     <Column id=claims title="Claims" fmt=num0 />
     <Column id=fraud_rate title="Fraud rate" fmt=pct1 contentType=colorscale />
 </DataTable>
+
+{/if}

@@ -3,6 +3,34 @@ title: Insurance Claims Report
 sidebar_position: 1
 ---
 
+```sql states
+select distinct incident_state from claims.claims order by all
+```
+
+```sql incident_types
+select distinct incident_type from claims.claims order by all
+```
+
+<Dropdown data={states} name=state value=incident_state title="State" multiple=true selectAllByDefault=true />
+<Dropdown data={incident_types} name=incident_type value=incident_type title="Incident type" multiple=true selectAllByDefault=true />
+
+```sql filtered
+select *
+from claims.claims
+where incident_state in ${inputs.state.value}
+    and incident_type in ${inputs.incident_type.value}
+```
+
+```sql selection
+select count(*) as claims from ${filtered}
+```
+
+{#if selection.length && selection[0].claims == 0}
+
+<Alert status=info>No claims match the selected filters.</Alert>
+
+{:else}
+
 ```sql kpis
 select
     count(*) as claims,
@@ -11,14 +39,14 @@ select
     avg(total_claim_amount) as avg_claim,
     strftime(min(incident_date), '%b %-d, %Y') as first_date,
     strftime(max(incident_date), '%b %-d, %Y') as last_date
-from claims.claims
+from ${filtered}
 ```
 
 Claim volume, cost and reported fraud for auto insurance claims, built from the cleaned `claims` table of the analytics pipeline.
-Incidents from **{kpis[0].first_date}** to **{kpis[0].last_date}**.
+{#if kpis.length}Incidents from **{kpis[0].first_date}** to **{kpis[0].last_date}**.{/if}
 
 <BigValue data={kpis} value=claims title="Total claims" fmt=num0 />
-<BigValue data={kpis} value=total_amount title="Total claim amount" fmt=usd1m />
+<BigValue data={kpis} value=total_amount title="Total claim amount" fmt=usd />
 <BigValue data={kpis} value=fraud_rate title="Fraud rate" fmt=pct1 />
 <BigValue data={kpis} value=avg_claim title="Average claim" fmt=usd0 />
 
@@ -29,11 +57,11 @@ with days as (
     select unnest(generate_series(
         min(incident_date), max(incident_date), interval 1 day
     )) as day
-    from claims.claims
+    from ${filtered}
 ),
 counts as (
     select incident_date as day, count(*) as claims
-    from claims.claims
+    from ${filtered}
     group by all
 )
 select
@@ -66,7 +94,7 @@ select
     count(*) as claims,
     sum(total_claim_amount) as claim_cost,
     count(distinct incident_date) as days_with_data
-from claims.claims
+from ${filtered}
 group by all
 order by week_start
 ```
@@ -75,7 +103,7 @@ order by week_start
     data={weekly}
     x=week_start
     y=claim_cost
-    yFmt=usd1m
+    yFmt=usd
     title="Claim cost per week"
     subtitle="Weeks start on Monday; the first and last weeks are partial"
     colorPalette={['#1f3a5f']}
@@ -87,7 +115,7 @@ select
     sum(injury_claim) as injury,
     sum(property_claim) as property,
     sum(vehicle_claim) as vehicle
-from claims.claims
+from ${filtered}
 group by all
 order by sum(total_claim_amount) desc
 ```
@@ -96,9 +124,11 @@ order by sum(total_claim_amount) desc
     data={cost_split}
     x=incident_type
     y={['vehicle', 'property', 'injury']}
-    yFmt=usd1m
+    yFmt=usd
     swapXY=true
     title="Claim cost split by incident type"
     subtitle="Vehicle, property and injury parts add up to the total claim amount"
     colorPalette={['#1f3a5f', '#3d7cc9', '#a9c6e8']}
 />
+
+{/if}
