@@ -59,7 +59,13 @@ Requirements:
 - a conda env named `data-analysis` with Python 3.12, pandas 3, duckdb, pyarrow, plotly, pytest and ruff
 - the raw data: download the dataset (see [DATA_SOURCES.md](DATA_SOURCES.md)) and put `insurance_claims.csv` in `data/inbox/`
 
-Run the steps in order:
+Run the whole pipeline with one command. It stops at the first step that fails:
+
+```bash
+conda run -n data-analysis python -m industries.insurance.run_pipeline
+```
+
+Or run the steps one at a time:
 
 ```bash
 conda run -n data-analysis python -m industries.insurance.clean
