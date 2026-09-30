@@ -77,11 +77,21 @@ conda run -n data-analysis python -m industries.insurance.report
 conda run -n data-analysis python -m industries.insurance.export
 ```
 
-Open the interactive dashboard (KPIs and charts, filterable by state and incident type). It reads `data/processed/claims.duckdb`, so run the pipeline first:
+Open the interactive dashboard. It reads `data/processed/claims.duckdb`, so run the pipeline first:
 
 ```bash
 conda run --no-capture-output -n data-analysis streamlit run dashboard.py
 ```
+
+It shows KPI cards and five tabs, all filterable by state and incident type in the sidebar:
+
+- **Overview:** fraud share (donut), claim amount distribution (box plot), claim cost split into injury, property and vehicle (stacked bar)
+- **Fraud:** fraud rate by severity and by incident type, plus an incident type × severity heatmap
+- **Geography:** claim cost by state, with a per-state table
+- **Trends:** claims per day with a 2-week rolling average
+- **Insights:** written findings, trends, what to watch and caveats, all computed from the filtered data
+
+The theme lives in `.streamlit/config.toml`.
 
 Run the tests and the linter:
 
