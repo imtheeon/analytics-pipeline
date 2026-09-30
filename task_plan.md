@@ -4,7 +4,7 @@
 Scaffold project, pick an insurance claims dataset, push to a private GitHub repo.
 
 ## Next Step
-Next: store step (load parquet into DuckDB).
+Next: analyze step (SQL queries on claims.duckdb).
 
 ### Phase 1: settings.json model opusplan → sonnet
 **Status:** complete
@@ -31,4 +31,7 @@ Next: store step (load parquet into DuckDB).
 | fill_missing ran after drop_empty_columns, all-null filled column dropped | 1 | fill before drop |
 
 ### Phase 7: validate step (core/validate.py, industries/insurance/validate.py)
+**Status:** complete
+
+### Phase 8: store step (core/store.py, industries/insurance/store.py -> data/processed/claims.duckdb)
 **Status:** complete
