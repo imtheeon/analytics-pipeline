@@ -4,7 +4,7 @@
 Scaffold project, pick an insurance claims dataset, push to a private GitHub repo.
 
 ## Next Step
-Next: optional — one-command run_pipeline, README with results.
+Next: none planned — pipeline complete (add new industries under industries/<name>/).
 
 ### Phase 1: settings.json model opusplan → sonnet
 **Status:** complete
@@ -40,4 +40,7 @@ Next: optional — one-command run_pipeline, README with results.
 **Status:** complete
 
 ### Phase 10: report step (core/report.py, industries/insurance/report.py -> reports/insurance_claims_report.html)
+**Status:** complete
+
+### Phase 11: README + one-command run_pipeline (industries/insurance/run_pipeline.py)
 **Status:** complete

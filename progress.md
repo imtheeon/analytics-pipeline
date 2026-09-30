@@ -11,3 +11,4 @@
 - analyze built; 26 tests pass; 4 SQL queries; totals cross-check (1000 claims, 247 fraud, 52,761,940 amount)
 - report built; 28 tests pass; validate-data review: numbers recomputed in pandas match; fixed week-start date range + partial week in chart; added source caveat
 - README.md with results; all 5 steps re-run end to end OK
+- run_pipeline added (runpy over the 5 step scripts); 29 tests pass; full run exit 0

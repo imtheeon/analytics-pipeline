@@ -31,6 +31,8 @@ def build_sections(
     claims, fraud = sev["claims"].sum(), sev["fraud_claims"].sum()
     fraud_pct = 100 * fraud / claims
     top_sev = sev.loc[sev["fraud_pct"].idxmax()]
+    top_kind = kind.loc[kind["fraud_pct"].idxmax()]
+    costly_kind = kind.loc[kind["avg_amount"].idxmax()]
     top3 = state.nlargest(3, "total_amount")
     warnings = validation.query("severity == 'warn' and failed_rows > 0")
     full_weeks = week[(week["last_day"] - week["first_day"]).dt.days == 6]
@@ -60,7 +62,10 @@ def build_sections(
         ),
         (
             "Fraud by incident type",
-            "Collisions carry both the highest fraud rate and the highest average claim.",
+            (
+                f"Highest fraud rate: {top_kind['incident_type']} ({top_kind['fraud_pct']:.1f}%). "
+                f"Highest average claim: {costly_kind['incident_type']} (${costly_kind['avg_amount']:,.0f})."
+            ),
             ranked_bar(
                 kind, "incident_type", "fraud_pct", "Fraud rate (%) by incident type"
             ),

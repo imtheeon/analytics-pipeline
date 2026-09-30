@@ -25,7 +25,11 @@ def test_insurance_headlines_come_from_data():
             }
         ),
         "fraud_by_incident_type": pd.DataFrame(
-            {"incident_type": ["Parked Car"], "fraud_pct": [35.0]}
+            {
+                "incident_type": ["Parked Car", "Theft"],
+                "fraud_pct": [35.0, 5.0],
+                "avg_amount": [100.0, 900.0],
+            }
         ),
         "claims_by_state": pd.DataFrame(
             {
@@ -54,3 +58,7 @@ def test_insurance_headlines_come_from_data():
         in sections["Claim cost by state"][2].layout.title.text
     )
     assert "1 warning" in sections["Data quality"][1]
+    assert (
+        "Highest fraud rate: Parked Car (35.0%). Highest average claim: Theft ($900)."
+        == sections["Fraud by incident type"][1]
+    )
