@@ -4,7 +4,7 @@
 Scaffold project, pick an insurance claims dataset, push to a private GitHub repo.
 
 ## Next Step
-Next: validate step (flag umbrella_limit < 0, claim parts sum), then store in DuckDB.
+Next: store step (load parquet into DuckDB).
 
 ### Phase 1: settings.json model opusplan → sonnet
 **Status:** complete
@@ -29,3 +29,6 @@ Next: validate step (flag umbrella_limit < 0, claim parts sum), then store in Du
 | `cat >` with no heredoc hung profile run | 1 | stopped task, rewrote command |
 | conda run rejects multi-line `-c` | 1 | call env python.exe directly |
 | fill_missing ran after drop_empty_columns, all-null filled column dropped | 1 | fill before drop |
+
+### Phase 7: validate step (core/validate.py, industries/insurance/validate.py)
+**Status:** complete
