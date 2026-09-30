@@ -1,0 +1,618 @@
+incident_state,incident_type,incident_date,claims
+NC,Multi-vehicle Collision,2015-01-05,1
+NC,Multi-vehicle Collision,2015-01-11,1
+NC,Multi-vehicle Collision,2015-01-12,1
+NC,Multi-vehicle Collision,2015-01-13,1
+NC,Multi-vehicle Collision,2015-01-15,1
+NC,Multi-vehicle Collision,2015-01-16,2
+NC,Multi-vehicle Collision,2015-01-19,1
+NC,Multi-vehicle Collision,2015-01-20,2
+NC,Multi-vehicle Collision,2015-01-21,1
+NC,Multi-vehicle Collision,2015-01-23,1
+NC,Multi-vehicle Collision,2015-01-27,2
+NC,Multi-vehicle Collision,2015-01-28,1
+NC,Multi-vehicle Collision,2015-01-29,1
+NC,Multi-vehicle Collision,2015-01-30,3
+NC,Multi-vehicle Collision,2015-01-31,1
+NC,Multi-vehicle Collision,2015-02-01,2
+NC,Multi-vehicle Collision,2015-02-03,1
+NC,Multi-vehicle Collision,2015-02-05,2
+NC,Multi-vehicle Collision,2015-02-06,1
+NC,Multi-vehicle Collision,2015-02-08,1
+NC,Multi-vehicle Collision,2015-02-09,1
+NC,Multi-vehicle Collision,2015-02-11,1
+NC,Multi-vehicle Collision,2015-02-14,1
+NC,Multi-vehicle Collision,2015-02-15,1
+NC,Multi-vehicle Collision,2015-02-16,2
+NC,Multi-vehicle Collision,2015-02-17,1
+NC,Multi-vehicle Collision,2015-02-18,1
+NC,Multi-vehicle Collision,2015-02-19,1
+NC,Multi-vehicle Collision,2015-02-21,2
+NC,Multi-vehicle Collision,2015-02-22,1
+NC,Multi-vehicle Collision,2015-02-24,1
+NC,Multi-vehicle Collision,2015-02-27,2
+NC,Multi-vehicle Collision,2015-03-01,1
+NC,Parked Car,2015-01-08,1
+NC,Parked Car,2015-01-21,1
+NC,Parked Car,2015-01-27,1
+NC,Parked Car,2015-02-05,1
+NC,Parked Car,2015-02-16,1
+NC,Parked Car,2015-02-18,2
+NC,Parked Car,2015-02-24,1
+NC,Parked Car,2015-02-26,1
+NC,Parked Car,2015-02-27,1
+NC,Single Vehicle Collision,2015-01-01,1
+NC,Single Vehicle Collision,2015-01-04,3
+NC,Single Vehicle Collision,2015-01-05,1
+NC,Single Vehicle Collision,2015-01-06,1
+NC,Single Vehicle Collision,2015-01-07,1
+NC,Single Vehicle Collision,2015-01-08,2
+NC,Single Vehicle Collision,2015-01-10,1
+NC,Single Vehicle Collision,2015-01-13,2
+NC,Single Vehicle Collision,2015-01-14,1
+NC,Single Vehicle Collision,2015-01-15,1
+NC,Single Vehicle Collision,2015-01-16,1
+NC,Single Vehicle Collision,2015-01-19,1
+NC,Single Vehicle Collision,2015-01-20,2
+NC,Single Vehicle Collision,2015-01-21,2
+NC,Single Vehicle Collision,2015-01-22,1
+NC,Single Vehicle Collision,2015-01-23,1
+NC,Single Vehicle Collision,2015-01-24,2
+NC,Single Vehicle Collision,2015-01-29,1
+NC,Single Vehicle Collision,2015-01-30,1
+NC,Single Vehicle Collision,2015-02-01,1
+NC,Single Vehicle Collision,2015-02-02,2
+NC,Single Vehicle Collision,2015-02-07,1
+NC,Single Vehicle Collision,2015-02-09,1
+NC,Single Vehicle Collision,2015-02-10,1
+NC,Single Vehicle Collision,2015-02-11,1
+NC,Single Vehicle Collision,2015-02-14,1
+NC,Single Vehicle Collision,2015-02-18,1
+NC,Single Vehicle Collision,2015-02-19,1
+NC,Single Vehicle Collision,2015-02-20,1
+NC,Single Vehicle Collision,2015-02-22,1
+NC,Single Vehicle Collision,2015-02-24,1
+NC,Single Vehicle Collision,2015-02-25,2
+NC,Single Vehicle Collision,2015-02-26,1
+NC,Single Vehicle Collision,2015-02-28,1
+NC,Vehicle Theft,2015-01-01,1
+NC,Vehicle Theft,2015-01-02,1
+NC,Vehicle Theft,2015-01-03,1
+NC,Vehicle Theft,2015-01-06,1
+NC,Vehicle Theft,2015-01-19,1
+NC,Vehicle Theft,2015-01-25,1
+NC,Vehicle Theft,2015-01-26,1
+NC,Vehicle Theft,2015-01-31,1
+NC,Vehicle Theft,2015-02-01,1
+NC,Vehicle Theft,2015-02-03,1
+NC,Vehicle Theft,2015-02-10,1
+NC,Vehicle Theft,2015-02-13,1
+NC,Vehicle Theft,2015-02-17,1
+NC,Vehicle Theft,2015-02-23,1
+NY,Multi-vehicle Collision,2015-01-01,3
+NY,Multi-vehicle Collision,2015-01-02,2
+NY,Multi-vehicle Collision,2015-01-03,2
+NY,Multi-vehicle Collision,2015-01-04,2
+NY,Multi-vehicle Collision,2015-01-05,1
+NY,Multi-vehicle Collision,2015-01-07,5
+NY,Multi-vehicle Collision,2015-01-08,3
+NY,Multi-vehicle Collision,2015-01-09,2
+NY,Multi-vehicle Collision,2015-01-10,4
+NY,Multi-vehicle Collision,2015-01-11,1
+NY,Multi-vehicle Collision,2015-01-12,2
+NY,Multi-vehicle Collision,2015-01-13,1
+NY,Multi-vehicle Collision,2015-01-14,3
+NY,Multi-vehicle Collision,2015-01-16,1
+NY,Multi-vehicle Collision,2015-01-17,4
+NY,Multi-vehicle Collision,2015-01-18,3
+NY,Multi-vehicle Collision,2015-01-19,6
+NY,Multi-vehicle Collision,2015-01-20,1
+NY,Multi-vehicle Collision,2015-01-21,2
+NY,Multi-vehicle Collision,2015-01-22,6
+NY,Multi-vehicle Collision,2015-01-23,1
+NY,Multi-vehicle Collision,2015-01-24,2
+NY,Multi-vehicle Collision,2015-01-25,1
+NY,Multi-vehicle Collision,2015-01-27,2
+NY,Multi-vehicle Collision,2015-01-28,1
+NY,Multi-vehicle Collision,2015-01-30,1
+NY,Multi-vehicle Collision,2015-01-31,1
+NY,Multi-vehicle Collision,2015-02-01,1
+NY,Multi-vehicle Collision,2015-02-02,5
+NY,Multi-vehicle Collision,2015-02-04,2
+NY,Multi-vehicle Collision,2015-02-06,3
+NY,Multi-vehicle Collision,2015-02-07,2
+NY,Multi-vehicle Collision,2015-02-08,4
+NY,Multi-vehicle Collision,2015-02-09,2
+NY,Multi-vehicle Collision,2015-02-11,3
+NY,Multi-vehicle Collision,2015-02-12,3
+NY,Multi-vehicle Collision,2015-02-14,2
+NY,Multi-vehicle Collision,2015-02-15,1
+NY,Multi-vehicle Collision,2015-02-16,1
+NY,Multi-vehicle Collision,2015-02-17,3
+NY,Multi-vehicle Collision,2015-02-18,1
+NY,Multi-vehicle Collision,2015-02-19,1
+NY,Multi-vehicle Collision,2015-02-20,4
+NY,Multi-vehicle Collision,2015-02-21,3
+NY,Multi-vehicle Collision,2015-02-22,7
+NY,Multi-vehicle Collision,2015-02-24,3
+NY,Multi-vehicle Collision,2015-02-27,1
+NY,Multi-vehicle Collision,2015-03-01,4
+NY,Parked Car,2015-01-01,1
+NY,Parked Car,2015-01-03,1
+NY,Parked Car,2015-01-05,1
+NY,Parked Car,2015-01-10,1
+NY,Parked Car,2015-01-18,1
+NY,Parked Car,2015-01-24,2
+NY,Parked Car,2015-01-28,1
+NY,Parked Car,2015-02-02,1
+NY,Parked Car,2015-02-05,1
+NY,Parked Car,2015-02-10,1
+NY,Parked Car,2015-02-11,1
+NY,Parked Car,2015-02-12,1
+NY,Parked Car,2015-02-17,2
+NY,Parked Car,2015-02-19,1
+NY,Single Vehicle Collision,2015-01-03,2
+NY,Single Vehicle Collision,2015-01-04,1
+NY,Single Vehicle Collision,2015-01-06,4
+NY,Single Vehicle Collision,2015-01-07,3
+NY,Single Vehicle Collision,2015-01-08,2
+NY,Single Vehicle Collision,2015-01-09,4
+NY,Single Vehicle Collision,2015-01-10,2
+NY,Single Vehicle Collision,2015-01-12,1
+NY,Single Vehicle Collision,2015-01-13,2
+NY,Single Vehicle Collision,2015-01-14,2
+NY,Single Vehicle Collision,2015-01-15,2
+NY,Single Vehicle Collision,2015-01-16,3
+NY,Single Vehicle Collision,2015-01-17,2
+NY,Single Vehicle Collision,2015-01-18,1
+NY,Single Vehicle Collision,2015-01-19,3
+NY,Single Vehicle Collision,2015-01-21,3
+NY,Single Vehicle Collision,2015-01-22,2
+NY,Single Vehicle Collision,2015-01-23,3
+NY,Single Vehicle Collision,2015-01-24,1
+NY,Single Vehicle Collision,2015-01-27,1
+NY,Single Vehicle Collision,2015-01-28,5
+NY,Single Vehicle Collision,2015-01-29,1
+NY,Single Vehicle Collision,2015-01-30,2
+NY,Single Vehicle Collision,2015-01-31,3
+NY,Single Vehicle Collision,2015-02-02,6
+NY,Single Vehicle Collision,2015-02-03,1
+NY,Single Vehicle Collision,2015-02-04,2
+NY,Single Vehicle Collision,2015-02-05,1
+NY,Single Vehicle Collision,2015-02-06,4
+NY,Single Vehicle Collision,2015-02-08,1
+NY,Single Vehicle Collision,2015-02-09,2
+NY,Single Vehicle Collision,2015-02-10,1
+NY,Single Vehicle Collision,2015-02-11,1
+NY,Single Vehicle Collision,2015-02-12,4
+NY,Single Vehicle Collision,2015-02-13,1
+NY,Single Vehicle Collision,2015-02-14,1
+NY,Single Vehicle Collision,2015-02-15,1
+NY,Single Vehicle Collision,2015-02-16,2
+NY,Single Vehicle Collision,2015-02-17,5
+NY,Single Vehicle Collision,2015-02-18,1
+NY,Single Vehicle Collision,2015-02-19,1
+NY,Single Vehicle Collision,2015-02-20,2
+NY,Single Vehicle Collision,2015-02-21,4
+NY,Single Vehicle Collision,2015-02-22,3
+NY,Single Vehicle Collision,2015-02-23,2
+NY,Single Vehicle Collision,2015-02-24,1
+NY,Single Vehicle Collision,2015-02-25,3
+NY,Single Vehicle Collision,2015-02-26,3
+NY,Single Vehicle Collision,2015-02-27,1
+NY,Single Vehicle Collision,2015-02-28,3
+NY,Vehicle Theft,2015-01-06,1
+NY,Vehicle Theft,2015-01-14,1
+NY,Vehicle Theft,2015-01-17,1
+NY,Vehicle Theft,2015-01-20,1
+NY,Vehicle Theft,2015-01-24,1
+NY,Vehicle Theft,2015-01-29,1
+NY,Vehicle Theft,2015-02-02,3
+NY,Vehicle Theft,2015-02-05,1
+NY,Vehicle Theft,2015-02-12,1
+NY,Vehicle Theft,2015-02-17,1
+NY,Vehicle Theft,2015-02-25,2
+NY,Vehicle Theft,2015-02-26,1
+OH,Multi-vehicle Collision,2015-01-09,1
+OH,Multi-vehicle Collision,2015-01-11,1
+OH,Multi-vehicle Collision,2015-01-14,1
+OH,Multi-vehicle Collision,2015-01-23,1
+OH,Multi-vehicle Collision,2015-02-02,1
+OH,Multi-vehicle Collision,2015-02-04,1
+OH,Multi-vehicle Collision,2015-02-06,1
+OH,Multi-vehicle Collision,2015-02-11,1
+OH,Multi-vehicle Collision,2015-02-12,2
+OH,Multi-vehicle Collision,2015-02-14,1
+OH,Multi-vehicle Collision,2015-02-17,1
+OH,Other (small groups),2015-01-05,1
+OH,Other (small groups),2015-01-06,1
+OH,Other (small groups),2015-01-07,1
+OH,Other (small groups),2015-01-08,1
+OH,Other (small groups),2015-01-10,1
+OH,Other (small groups),2015-01-26,1
+OH,Other (small groups),2015-02-04,1
+OH,Other (small groups),2015-02-10,1
+OH,Other (small groups),2015-02-12,1
+OH,Other (small groups),2015-02-15,1
+OH,Other (small groups),2015-02-21,1
+PA,Multi-vehicle Collision,2015-01-04,1
+PA,Multi-vehicle Collision,2015-01-07,1
+PA,Multi-vehicle Collision,2015-01-12,1
+PA,Multi-vehicle Collision,2015-01-14,1
+PA,Multi-vehicle Collision,2015-01-24,1
+PA,Multi-vehicle Collision,2015-01-29,1
+PA,Multi-vehicle Collision,2015-02-01,1
+PA,Multi-vehicle Collision,2015-02-02,1
+PA,Multi-vehicle Collision,2015-02-04,1
+PA,Multi-vehicle Collision,2015-02-06,1
+PA,Multi-vehicle Collision,2015-02-07,1
+PA,Multi-vehicle Collision,2015-02-21,1
+PA,Multi-vehicle Collision,2015-02-23,1
+PA,Multi-vehicle Collision,2015-02-26,1
+PA,Multi-vehicle Collision,2015-02-28,1
+PA,Other (small groups),2015-01-01,1
+PA,Other (small groups),2015-01-10,1
+PA,Other (small groups),2015-01-14,1
+PA,Other (small groups),2015-01-21,1
+PA,Other (small groups),2015-01-25,1
+PA,Other (small groups),2015-01-28,1
+PA,Other (small groups),2015-02-02,1
+PA,Other (small groups),2015-02-08,2
+PA,Other (small groups),2015-02-15,1
+PA,Other (small groups),2015-02-20,2
+PA,Other (small groups),2015-02-25,1
+PA,Other (small groups),2015-02-26,1
+PA,Other (small groups),2015-02-27,1
+SC,Multi-vehicle Collision,2015-01-01,1
+SC,Multi-vehicle Collision,2015-01-02,1
+SC,Multi-vehicle Collision,2015-01-03,1
+SC,Multi-vehicle Collision,2015-01-04,1
+SC,Multi-vehicle Collision,2015-01-06,1
+SC,Multi-vehicle Collision,2015-01-07,5
+SC,Multi-vehicle Collision,2015-01-08,3
+SC,Multi-vehicle Collision,2015-01-09,3
+SC,Multi-vehicle Collision,2015-01-10,4
+SC,Multi-vehicle Collision,2015-01-11,1
+SC,Multi-vehicle Collision,2015-01-12,2
+SC,Multi-vehicle Collision,2015-01-13,2
+SC,Multi-vehicle Collision,2015-01-14,2
+SC,Multi-vehicle Collision,2015-01-15,1
+SC,Multi-vehicle Collision,2015-01-16,1
+SC,Multi-vehicle Collision,2015-01-17,2
+SC,Multi-vehicle Collision,2015-01-18,3
+SC,Multi-vehicle Collision,2015-01-19,2
+SC,Multi-vehicle Collision,2015-01-20,2
+SC,Multi-vehicle Collision,2015-01-21,1
+SC,Multi-vehicle Collision,2015-01-22,1
+SC,Multi-vehicle Collision,2015-01-23,2
+SC,Multi-vehicle Collision,2015-01-24,4
+SC,Multi-vehicle Collision,2015-01-26,2
+SC,Multi-vehicle Collision,2015-01-28,1
+SC,Multi-vehicle Collision,2015-01-29,1
+SC,Multi-vehicle Collision,2015-01-30,2
+SC,Multi-vehicle Collision,2015-01-31,1
+SC,Multi-vehicle Collision,2015-02-01,2
+SC,Multi-vehicle Collision,2015-02-02,3
+SC,Multi-vehicle Collision,2015-02-03,1
+SC,Multi-vehicle Collision,2015-02-04,4
+SC,Multi-vehicle Collision,2015-02-05,2
+SC,Multi-vehicle Collision,2015-02-06,1
+SC,Multi-vehicle Collision,2015-02-08,2
+SC,Multi-vehicle Collision,2015-02-09,1
+SC,Multi-vehicle Collision,2015-02-10,4
+SC,Multi-vehicle Collision,2015-02-12,2
+SC,Multi-vehicle Collision,2015-02-13,3
+SC,Multi-vehicle Collision,2015-02-14,1
+SC,Multi-vehicle Collision,2015-02-15,5
+SC,Multi-vehicle Collision,2015-02-16,2
+SC,Multi-vehicle Collision,2015-02-17,1
+SC,Multi-vehicle Collision,2015-02-20,2
+SC,Multi-vehicle Collision,2015-02-22,2
+SC,Multi-vehicle Collision,2015-02-23,4
+SC,Multi-vehicle Collision,2015-02-24,2
+SC,Multi-vehicle Collision,2015-02-25,1
+SC,Multi-vehicle Collision,2015-02-27,2
+SC,Multi-vehicle Collision,2015-02-28,3
+SC,Parked Car,2015-01-02,1
+SC,Parked Car,2015-01-08,1
+SC,Parked Car,2015-01-13,3
+SC,Parked Car,2015-01-18,1
+SC,Parked Car,2015-01-21,1
+SC,Parked Car,2015-01-22,1
+SC,Parked Car,2015-01-25,1
+SC,Parked Car,2015-02-02,2
+SC,Parked Car,2015-02-03,1
+SC,Parked Car,2015-02-07,1
+SC,Parked Car,2015-02-09,1
+SC,Parked Car,2015-02-12,1
+SC,Parked Car,2015-02-13,1
+SC,Parked Car,2015-02-16,1
+SC,Parked Car,2015-02-20,1
+SC,Parked Car,2015-02-21,1
+SC,Parked Car,2015-02-25,1
+SC,Parked Car,2015-02-26,1
+SC,Parked Car,2015-02-27,1
+SC,Single Vehicle Collision,2015-01-01,2
+SC,Single Vehicle Collision,2015-01-02,1
+SC,Single Vehicle Collision,2015-01-03,4
+SC,Single Vehicle Collision,2015-01-04,1
+SC,Single Vehicle Collision,2015-01-05,1
+SC,Single Vehicle Collision,2015-01-06,1
+SC,Single Vehicle Collision,2015-01-07,2
+SC,Single Vehicle Collision,2015-01-08,3
+SC,Single Vehicle Collision,2015-01-09,4
+SC,Single Vehicle Collision,2015-01-10,2
+SC,Single Vehicle Collision,2015-01-11,4
+SC,Single Vehicle Collision,2015-01-12,5
+SC,Single Vehicle Collision,2015-01-13,2
+SC,Single Vehicle Collision,2015-01-14,1
+SC,Single Vehicle Collision,2015-01-15,4
+SC,Single Vehicle Collision,2015-01-16,1
+SC,Single Vehicle Collision,2015-01-17,2
+SC,Single Vehicle Collision,2015-01-19,1
+SC,Single Vehicle Collision,2015-01-20,5
+SC,Single Vehicle Collision,2015-01-21,2
+SC,Single Vehicle Collision,2015-01-22,2
+SC,Single Vehicle Collision,2015-01-24,2
+SC,Single Vehicle Collision,2015-01-25,1
+SC,Single Vehicle Collision,2015-01-26,2
+SC,Single Vehicle Collision,2015-01-27,1
+SC,Single Vehicle Collision,2015-01-28,1
+SC,Single Vehicle Collision,2015-01-30,3
+SC,Single Vehicle Collision,2015-01-31,1
+SC,Single Vehicle Collision,2015-02-01,3
+SC,Single Vehicle Collision,2015-02-03,1
+SC,Single Vehicle Collision,2015-02-04,2
+SC,Single Vehicle Collision,2015-02-05,1
+SC,Single Vehicle Collision,2015-02-07,1
+SC,Single Vehicle Collision,2015-02-08,2
+SC,Single Vehicle Collision,2015-02-09,1
+SC,Single Vehicle Collision,2015-02-10,1
+SC,Single Vehicle Collision,2015-02-13,3
+SC,Single Vehicle Collision,2015-02-14,7
+SC,Single Vehicle Collision,2015-02-15,1
+SC,Single Vehicle Collision,2015-02-16,1
+SC,Single Vehicle Collision,2015-02-17,5
+SC,Single Vehicle Collision,2015-02-18,2
+SC,Single Vehicle Collision,2015-02-22,1
+SC,Single Vehicle Collision,2015-02-23,3
+SC,Single Vehicle Collision,2015-02-24,3
+SC,Single Vehicle Collision,2015-02-25,1
+SC,Single Vehicle Collision,2015-02-26,2
+SC,Single Vehicle Collision,2015-02-27,1
+SC,Single Vehicle Collision,2015-02-28,1
+SC,Single Vehicle Collision,2015-03-01,1
+SC,Vehicle Theft,2015-01-04,1
+SC,Vehicle Theft,2015-01-06,1
+SC,Vehicle Theft,2015-01-07,1
+SC,Vehicle Theft,2015-01-13,1
+SC,Vehicle Theft,2015-01-15,1
+SC,Vehicle Theft,2015-01-18,1
+SC,Vehicle Theft,2015-01-19,1
+SC,Vehicle Theft,2015-01-24,1
+SC,Vehicle Theft,2015-01-26,1
+SC,Vehicle Theft,2015-01-29,1
+SC,Vehicle Theft,2015-01-30,1
+SC,Vehicle Theft,2015-02-03,2
+SC,Vehicle Theft,2015-02-18,1
+SC,Vehicle Theft,2015-02-21,1
+SC,Vehicle Theft,2015-02-23,1
+SC,Vehicle Theft,2015-02-24,1
+SC,Vehicle Theft,2015-02-28,1
+VA,Multi-vehicle Collision,2015-01-02,1
+VA,Multi-vehicle Collision,2015-01-06,3
+VA,Multi-vehicle Collision,2015-01-10,1
+VA,Multi-vehicle Collision,2015-01-13,2
+VA,Multi-vehicle Collision,2015-01-16,1
+VA,Multi-vehicle Collision,2015-01-17,1
+VA,Multi-vehicle Collision,2015-01-18,2
+VA,Multi-vehicle Collision,2015-01-19,1
+VA,Multi-vehicle Collision,2015-01-20,1
+VA,Multi-vehicle Collision,2015-01-24,2
+VA,Multi-vehicle Collision,2015-01-25,1
+VA,Multi-vehicle Collision,2015-01-27,1
+VA,Multi-vehicle Collision,2015-01-30,1
+VA,Multi-vehicle Collision,2015-01-31,1
+VA,Multi-vehicle Collision,2015-02-03,1
+VA,Multi-vehicle Collision,2015-02-04,1
+VA,Multi-vehicle Collision,2015-02-07,1
+VA,Multi-vehicle Collision,2015-02-08,1
+VA,Multi-vehicle Collision,2015-02-12,2
+VA,Multi-vehicle Collision,2015-02-13,2
+VA,Multi-vehicle Collision,2015-02-14,1
+VA,Multi-vehicle Collision,2015-02-15,2
+VA,Multi-vehicle Collision,2015-02-18,1
+VA,Multi-vehicle Collision,2015-02-21,1
+VA,Multi-vehicle Collision,2015-02-22,1
+VA,Multi-vehicle Collision,2015-02-24,1
+VA,Multi-vehicle Collision,2015-02-25,2
+VA,Multi-vehicle Collision,2015-02-27,1
+VA,Multi-vehicle Collision,2015-03-01,4
+VA,Parked Car,2015-01-01,1
+VA,Parked Car,2015-01-20,1
+VA,Parked Car,2015-01-25,1
+VA,Parked Car,2015-02-01,2
+VA,Parked Car,2015-02-04,1
+VA,Parked Car,2015-02-19,1
+VA,Parked Car,2015-02-21,1
+VA,Parked Car,2015-02-22,1
+VA,Parked Car,2015-02-27,1
+VA,Parked Car,2015-02-28,1
+VA,Single Vehicle Collision,2015-01-01,1
+VA,Single Vehicle Collision,2015-01-03,1
+VA,Single Vehicle Collision,2015-01-04,1
+VA,Single Vehicle Collision,2015-01-05,1
+VA,Single Vehicle Collision,2015-01-06,1
+VA,Single Vehicle Collision,2015-01-07,3
+VA,Single Vehicle Collision,2015-01-08,3
+VA,Single Vehicle Collision,2015-01-09,1
+VA,Single Vehicle Collision,2015-01-10,1
+VA,Single Vehicle Collision,2015-01-12,1
+VA,Single Vehicle Collision,2015-01-13,1
+VA,Single Vehicle Collision,2015-01-14,2
+VA,Single Vehicle Collision,2015-01-15,1
+VA,Single Vehicle Collision,2015-01-16,1
+VA,Single Vehicle Collision,2015-01-17,1
+VA,Single Vehicle Collision,2015-01-21,2
+VA,Single Vehicle Collision,2015-01-23,1
+VA,Single Vehicle Collision,2015-01-26,1
+VA,Single Vehicle Collision,2015-01-27,1
+VA,Single Vehicle Collision,2015-01-30,1
+VA,Single Vehicle Collision,2015-01-31,2
+VA,Single Vehicle Collision,2015-02-01,2
+VA,Single Vehicle Collision,2015-02-02,1
+VA,Single Vehicle Collision,2015-02-03,1
+VA,Single Vehicle Collision,2015-02-08,1
+VA,Single Vehicle Collision,2015-02-11,1
+VA,Single Vehicle Collision,2015-02-13,1
+VA,Single Vehicle Collision,2015-02-16,1
+VA,Single Vehicle Collision,2015-02-17,2
+VA,Single Vehicle Collision,2015-02-20,1
+VA,Single Vehicle Collision,2015-02-23,1
+VA,Single Vehicle Collision,2015-02-24,1
+VA,Single Vehicle Collision,2015-02-26,2
+VA,Single Vehicle Collision,2015-02-28,1
+VA,Vehicle Theft,2015-01-01,1
+VA,Vehicle Theft,2015-01-02,2
+VA,Vehicle Theft,2015-01-07,1
+VA,Vehicle Theft,2015-01-13,1
+VA,Vehicle Theft,2015-01-15,1
+VA,Vehicle Theft,2015-01-16,1
+VA,Vehicle Theft,2015-01-19,1
+VA,Vehicle Theft,2015-01-21,1
+VA,Vehicle Theft,2015-01-24,1
+VA,Vehicle Theft,2015-01-28,1
+VA,Vehicle Theft,2015-02-04,1
+VA,Vehicle Theft,2015-02-24,2
+WV,Multi-vehicle Collision,2015-01-01,2
+WV,Multi-vehicle Collision,2015-01-03,1
+WV,Multi-vehicle Collision,2015-01-06,1
+WV,Multi-vehicle Collision,2015-01-07,1
+WV,Multi-vehicle Collision,2015-01-08,3
+WV,Multi-vehicle Collision,2015-01-10,2
+WV,Multi-vehicle Collision,2015-01-12,3
+WV,Multi-vehicle Collision,2015-01-13,1
+WV,Multi-vehicle Collision,2015-01-14,1
+WV,Multi-vehicle Collision,2015-01-15,2
+WV,Multi-vehicle Collision,2015-01-16,2
+WV,Multi-vehicle Collision,2015-01-18,1
+WV,Multi-vehicle Collision,2015-01-19,1
+WV,Multi-vehicle Collision,2015-01-20,1
+WV,Multi-vehicle Collision,2015-01-23,1
+WV,Multi-vehicle Collision,2015-01-24,1
+WV,Multi-vehicle Collision,2015-01-25,1
+WV,Multi-vehicle Collision,2015-01-26,2
+WV,Multi-vehicle Collision,2015-01-27,1
+WV,Multi-vehicle Collision,2015-01-28,1
+WV,Multi-vehicle Collision,2015-01-29,3
+WV,Multi-vehicle Collision,2015-01-30,3
+WV,Multi-vehicle Collision,2015-01-31,5
+WV,Multi-vehicle Collision,2015-02-01,1
+WV,Multi-vehicle Collision,2015-02-02,2
+WV,Multi-vehicle Collision,2015-02-04,1
+WV,Multi-vehicle Collision,2015-02-05,3
+WV,Multi-vehicle Collision,2015-02-06,3
+WV,Multi-vehicle Collision,2015-02-07,2
+WV,Multi-vehicle Collision,2015-02-08,1
+WV,Multi-vehicle Collision,2015-02-09,1
+WV,Multi-vehicle Collision,2015-02-12,2
+WV,Multi-vehicle Collision,2015-02-13,2
+WV,Multi-vehicle Collision,2015-02-14,2
+WV,Multi-vehicle Collision,2015-02-15,1
+WV,Multi-vehicle Collision,2015-02-16,2
+WV,Multi-vehicle Collision,2015-02-17,3
+WV,Multi-vehicle Collision,2015-02-18,4
+WV,Multi-vehicle Collision,2015-02-19,2
+WV,Multi-vehicle Collision,2015-02-21,3
+WV,Multi-vehicle Collision,2015-02-22,1
+WV,Multi-vehicle Collision,2015-02-23,3
+WV,Multi-vehicle Collision,2015-02-25,1
+WV,Multi-vehicle Collision,2015-02-27,1
+WV,Multi-vehicle Collision,2015-02-28,3
+WV,Multi-vehicle Collision,2015-03-01,2
+WV,Parked Car,2015-01-12,1
+WV,Parked Car,2015-01-14,1
+WV,Parked Car,2015-01-17,1
+WV,Parked Car,2015-01-18,2
+WV,Parked Car,2015-01-23,2
+WV,Parked Car,2015-01-28,1
+WV,Parked Car,2015-01-30,1
+WV,Parked Car,2015-02-03,1
+WV,Parked Car,2015-02-04,1
+WV,Parked Car,2015-02-06,1
+WV,Parked Car,2015-02-13,1
+WV,Parked Car,2015-02-15,1
+WV,Parked Car,2015-02-16,1
+WV,Parked Car,2015-02-22,1
+WV,Parked Car,2015-02-26,3
+WV,Parked Car,2015-02-28,1
+WV,Single Vehicle Collision,2015-01-01,2
+WV,Single Vehicle Collision,2015-01-02,2
+WV,Single Vehicle Collision,2015-01-03,5
+WV,Single Vehicle Collision,2015-01-04,1
+WV,Single Vehicle Collision,2015-01-06,1
+WV,Single Vehicle Collision,2015-01-07,1
+WV,Single Vehicle Collision,2015-01-09,1
+WV,Single Vehicle Collision,2015-01-10,3
+WV,Single Vehicle Collision,2015-01-11,1
+WV,Single Vehicle Collision,2015-01-12,1
+WV,Single Vehicle Collision,2015-01-13,1
+WV,Single Vehicle Collision,2015-01-14,1
+WV,Single Vehicle Collision,2015-01-16,2
+WV,Single Vehicle Collision,2015-01-17,1
+WV,Single Vehicle Collision,2015-01-18,2
+WV,Single Vehicle Collision,2015-01-19,4
+WV,Single Vehicle Collision,2015-01-20,2
+WV,Single Vehicle Collision,2015-01-21,1
+WV,Single Vehicle Collision,2015-01-22,1
+WV,Single Vehicle Collision,2015-01-24,3
+WV,Single Vehicle Collision,2015-01-25,2
+WV,Single Vehicle Collision,2015-01-26,1
+WV,Single Vehicle Collision,2015-01-27,2
+WV,Single Vehicle Collision,2015-01-28,1
+WV,Single Vehicle Collision,2015-01-29,1
+WV,Single Vehicle Collision,2015-01-30,2
+WV,Single Vehicle Collision,2015-01-31,1
+WV,Single Vehicle Collision,2015-02-01,2
+WV,Single Vehicle Collision,2015-02-03,2
+WV,Single Vehicle Collision,2015-02-04,5
+WV,Single Vehicle Collision,2015-02-05,2
+WV,Single Vehicle Collision,2015-02-06,4
+WV,Single Vehicle Collision,2015-02-07,1
+WV,Single Vehicle Collision,2015-02-08,2
+WV,Single Vehicle Collision,2015-02-09,1
+WV,Single Vehicle Collision,2015-02-11,1
+WV,Single Vehicle Collision,2015-02-12,1
+WV,Single Vehicle Collision,2015-02-13,1
+WV,Single Vehicle Collision,2015-02-14,1
+WV,Single Vehicle Collision,2015-02-15,1
+WV,Single Vehicle Collision,2015-02-16,1
+WV,Single Vehicle Collision,2015-02-18,1
+WV,Single Vehicle Collision,2015-02-19,2
+WV,Single Vehicle Collision,2015-02-20,1
+WV,Single Vehicle Collision,2015-02-23,3
+WV,Single Vehicle Collision,2015-02-25,3
+WV,Single Vehicle Collision,2015-02-28,2
+WV,Vehicle Theft,2015-01-01,2
+WV,Vehicle Theft,2015-01-09,1
+WV,Vehicle Theft,2015-01-10,1
+WV,Vehicle Theft,2015-01-12,1
+WV,Vehicle Theft,2015-01-13,1
+WV,Vehicle Theft,2015-01-14,1
+WV,Vehicle Theft,2015-01-15,1
+WV,Vehicle Theft,2015-01-18,1
+WV,Vehicle Theft,2015-01-21,1
+WV,Vehicle Theft,2015-01-24,1
+WV,Vehicle Theft,2015-01-27,1
+WV,Vehicle Theft,2015-01-31,3
+WV,Vehicle Theft,2015-02-04,1
+WV,Vehicle Theft,2015-02-05,2
+WV,Vehicle Theft,2015-02-06,1
+WV,Vehicle Theft,2015-02-09,2
+WV,Vehicle Theft,2015-02-16,1
+WV,Vehicle Theft,2015-02-17,1
+WV,Vehicle Theft,2015-02-21,1
+WV,Vehicle Theft,2015-02-22,1
+WV,Vehicle Theft,2015-02-25,1
+WV,Vehicle Theft,2015-02-26,1
+WV,Vehicle Theft,2015-02-27,1

@@ -1,0 +1,64 @@
+incident_state,incident_type,incident_severity,claims,fraud_claims
+NC,Multi-vehicle Collision,Major Damage,17,8
+NC,Multi-vehicle Collision,Minor Damage,15,4
+NC,Multi-vehicle Collision,Total Loss,11,2
+NC,Parked Car,Minor Damage,5,1
+NC,Parked Car,Trivial Damage,5,1
+NC,Single Vehicle Collision,Major Damage,17,12
+NC,Single Vehicle Collision,Minor Damage,16,3
+NC,Single Vehicle Collision,Total Loss,10,1
+NC,Vehicle Theft,Minor Damage,7,1
+NC,Vehicle Theft,Trivial Damage,7,1
+NY,Multi-vehicle Collision,Major Damage,31,18
+NY,Multi-vehicle Collision,Minor Damage,54,4
+NY,Multi-vehicle Collision,Total Loss,34,4
+NY,Parked Car,Minor Damage,7,0
+NY,Parked Car,Trivial Damage,9,0
+NY,Single Vehicle Collision,Major Damage,34,24
+NY,Single Vehicle Collision,Minor Damage,38,3
+NY,Single Vehicle Collision,Total Loss,40,4
+NY,Vehicle Theft,Minor Damage,6,0
+NY,Vehicle Theft,Trivial Damage,9,1
+OH,Multi-vehicle Collision,Major Damage,8,6
+OH,Multi-vehicle Collision,Total Loss,4,0
+OH,Other (small groups),Major Damage,3,3
+OH,Other (small groups),Minor Damage,6,0
+OH,Other (small groups),Total Loss,1,1
+OH,Other (small groups),Trivial Damage,1,0
+PA,Multi-vehicle Collision,Major Damage,7,3
+PA,Multi-vehicle Collision,Minor Damage,3,1
+PA,Multi-vehicle Collision,Total Loss,5,0
+PA,Other (small groups),Major Damage,1,0
+PA,Other (small groups),Minor Damage,7,2
+PA,Other (small groups),Total Loss,4,1
+PA,Other (small groups),Trivial Damage,3,1
+SC,Multi-vehicle Collision,Major Damage,42,29
+SC,Multi-vehicle Collision,Minor Damage,29,2
+SC,Multi-vehicle Collision,Total Loss,32,6
+SC,Parked Car,Minor Damage,10,1
+SC,Parked Car,Trivial Damage,12,1
+SC,Single Vehicle Collision,Major Damage,36,23
+SC,Single Vehicle Collision,Minor Damage,35,6
+SC,Single Vehicle Collision,Total Loss,34,4
+SC,Vehicle Theft,Minor Damage,7,1
+SC,Vehicle Theft,Trivial Damage,11,0
+VA,Multi-vehicle Collision,Major Damage,14,5
+VA,Multi-vehicle Collision,Minor Damage,9,0
+VA,Multi-vehicle Collision,Total Loss,18,3
+VA,Parked Car,Minor Damage,7,1
+VA,Parked Car,Trivial Damage,4,0
+VA,Single Vehicle Collision,Major Damage,15,9
+VA,Single Vehicle Collision,Minor Damage,14,3
+VA,Single Vehicle Collision,Total Loss,15,2
+VA,Vehicle Theft,Minor Damage,9,2
+VA,Vehicle Theft,Trivial Damage,5,0
+WV,Multi-vehicle Collision,Major Damage,25,15
+WV,Multi-vehicle Collision,Minor Damage,20,0
+WV,Multi-vehicle Collision,Total Loss,41,4
+WV,Parked Car,Minor Damage,9,1
+WV,Parked Car,Trivial Damage,11,0
+WV,Single Vehicle Collision,Major Damage,26,12
+WV,Single Vehicle Collision,Minor Damage,26,1
+WV,Single Vehicle Collision,Total Loss,31,4
+WV,Vehicle Theft,Minor Damage,15,1
+WV,Vehicle Theft,Trivial Damage,13,1

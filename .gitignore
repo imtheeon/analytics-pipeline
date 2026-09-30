@@ -3,10 +3,16 @@ data/**
 !data/**/
 !data/**/.gitkeep
 *.csv
+!demo_data/*.csv
 *.parquet
 *.xlsx
 *.json.gz
 reports/powerbi/
+
+# Local working notes
+task_plan.md
+progress.md
+findings.md
 
 # Secrets & databases
 .env

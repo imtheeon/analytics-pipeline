@@ -1,5 +1,20 @@
 # analytics-pipeline
 
+**Problem:** raw insurance claims data is messy, and it's hard to see where claim cost and reported fraud concentrate.
+
+**What I built:** a reusable Python pipeline (clean, validate, DuckDB, SQL analysis, HTML report, Power BI export) plus an interactive Streamlit dashboard and an Evidence report.
+
+**Key findings:** "Major Damage" claims have a 60.5% fraud rate against 7–13% for other severities, collisions cost the most per claim, and NY, SC and WV account for 74% of claim cost.
+
+**Live demo:** [link coming soon](#) (runs on aggregated data only)
+
+## Screenshots
+
+![Dashboard overview](reports/dashboard_1.png)
+![Dashboard fraud tab](reports/dashboard_2.png)
+
+## About
+
 A small, reusable data pipeline in Python, pandas 3.0 and DuckDB:
 
 ```
@@ -92,6 +107,12 @@ It shows KPI cards and five tabs, all filterable by state and incident type in t
 - **Insights:** written findings, trends, what to watch and caveats, all computed from the filtered data
 
 The theme lives in `.streamlit/config.toml`.
+
+Without `data/processed/claims.duckdb` (for example on Streamlit Community Cloud), the dashboard runs in demo mode on the aggregated tables in `demo_data/`. Those tables hold only counts, totals and summary statistics, never claim rows or policy numbers. State × incident type groups with fewer than 10 claims are merged into "Other (small groups)". All charts and filters work, except the claim amount box plot, which ignores the State filter in demo mode. Regenerate the tables after the data changes:
+
+```bash
+conda run -n data-analysis python -m industries.insurance.demo_data
+```
 
 There is also a static [Evidence](https://evidence.dev) report in `evidence-report/`, with four pages: Overview (KPIs and trends), Fraud (by severity, incident type and a heatmap), Geography (by state) and Insights (written findings and caveats calculated in SQL). Every page has State and Incident type filters. It uses the open-source Evidence framework (`@evidence-dev/evidence` 40), which reads `data/processed/claims.duckdb` directly. It needs Node.js 18+. Run the pipeline first, then:
 

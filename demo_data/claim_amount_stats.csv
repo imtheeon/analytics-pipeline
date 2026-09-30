@@ -1,0 +1,5 @@
+incident_type,p5,q1,median,q3,p95
+Multi-vehicle Collision,35235.0,51580.0,61650.0,71880.0,87906.0
+Parked Car,2640.0,4268.0,5490.0,6195.0,8623.0
+Single Vehicle Collision,40026.0,53450.0,62640.0,75535.0,91637.0
+Vehicle Theft,2765.0,4320.0,5495.0,6920.0,8040.0

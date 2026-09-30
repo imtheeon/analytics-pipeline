@@ -1,16 +1,28 @@
-"""Streamlit dashboard for the insurance claims in DuckDB: `streamlit run dashboard.py`."""
+"""Streamlit dashboard for the insurance claims: `streamlit run dashboard.py`.
+
+Reads the claims in DuckDB; without the database it falls back to the aggregated
+tables in demo_data/ (demo mode).
+"""
 
 import duckdb
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 
 from core.store import DB_PATH
+from industries.insurance.demo_data import DEMO, summarize
 from industries.insurance.report import HIGHLIGHT, ranked_bar
 
 NAVY, BLUE, LIGHT_BLUE = "#1f3a5f", "#3d7cc9", "#a9c6e8"
 SEVERITIES = ["Trivial Damage", "Minor Damage", "Major Damage", "Total Loss"]
 MIN_CLAIMS = 20  # smallest incident type x severity group an insight may single out
+DEMO_TABLES = [
+    "by_state_type",
+    "by_state_type_severity",
+    "by_state_type_day",
+    "claim_amount_stats",
+]
 LABELS = {
     "incident_type": "Incident type",
     "incident_severity": "Severity",
@@ -22,42 +34,66 @@ px.defaults.color_discrete_sequence = [NAVY, BLUE, LIGHT_BLUE]
 
 
 @st.cache_data
-def load_claims() -> pd.DataFrame:
-    with duckdb.connect(DB_PATH, read_only=True) as con:
-        return con.sql("SELECT * FROM claims").df()
+def load_data() -> tuple[dict[str, pd.DataFrame], pd.DataFrame | None]:
+    """Summary tables and claim rows from DuckDB, or only the demo_data/ summaries."""
+    if DB_PATH.exists():
+        with duckdb.connect(DB_PATH, read_only=True) as con:
+            rows = con.sql("SELECT * FROM claims").df()
+        return summarize(rows), rows
+    tables = {name: pd.read_csv(DEMO / f"{name}.csv") for name in DEMO_TABLES}
+    day = tables["by_state_type_day"]
+    day["incident_date"] = pd.to_datetime(day["incident_date"])
+    return tables, None
+
+
+def select(df: pd.DataFrame, states: list[str], types: list[str]) -> pd.DataFrame:
+    """Rows matching the filters; a table without a state column ignores that filter."""
+    if states and "incident_state" in df:
+        df = df[df["incident_state"].isin(states)]
+    if types:
+        df = df[df["incident_type"].isin(types)]
+    return df
 
 
 def fraud_rate_by(df: pd.DataFrame, col: str) -> pd.DataFrame:
-    """Percent of claims reported as fraud, per value of col."""
-    out = df.groupby(col, as_index=False)["fraud_reported"].mean()
-    out["fraud_pct"] = (100 * out.pop("fraud_reported")).round(1)
+    """Percent of claims reported as fraud, per value of col, from a summary table."""
+    out = df.groupby(col, as_index=False)[["claims", "fraud_claims"]].sum()
+    out["fraud_pct"] = (100 * out.pop("fraud_claims") / out.pop("claims")).round(1)
     return out
 
 
-def daily_claims(df: pd.DataFrame) -> pd.DataFrame:
+def daily_claims(day: pd.DataFrame) -> pd.DataFrame:
     """Claims per day (days without claims count as 0) and their 14-day rolling mean."""
-    daily = df.set_index("incident_date").resample("D").size().rename("claims")
+    daily = day.groupby("incident_date")["claims"].sum().resample("D").sum()
     daily = daily.to_frame()
     daily["avg_14d"] = daily["claims"].rolling(14).mean()
     return daily.reset_index()
 
 
-def insights(df: pd.DataFrame) -> dict[str, list[str]]:
-    """Plain-language findings, every number computed from df (the filtered claims)."""
-    fraud = df["fraud_reported"]
-    start, end = df["incident_date"].min(), df["incident_date"].max()
-    days = (end - start).days + 1
+def insights(t: dict[str, pd.DataFrame]) -> dict[str, list[str]]:
+    """Plain-language findings, every number computed from the filtered summary tables."""
+    by_type, sev = t["by_state_type"], t["by_state_type_severity"]
+    n, n_fraud = by_type["claims"].sum(), by_type["fraud_claims"].sum()
+    daily = daily_claims(t["by_state_type_day"])
+    start, end = daily["incident_date"].min(), daily["incident_date"].max()
+    days = len(daily)
 
-    by_sev = df.groupby("incident_severity")["fraud_reported"]
-    by_sev = by_sev.agg(["mean", "sum", "size"]).sort_values("mean")
-    cost = df.groupby("incident_type")["total_claim_amount"].agg(["mean", "sum"])
+    by_sev = sev.groupby("incident_severity").agg(
+        sum=("fraud_claims", "sum"), size=("claims", "sum")
+    )
+    by_sev["mean"] = by_sev["sum"] / by_sev["size"]
+    by_sev = by_sev.sort_values("mean")
+    cost = by_type.groupby("incident_type").agg(
+        sum=("total_claim_amount", "sum"), size=("claims", "sum")
+    )
+    cost["mean"] = cost["sum"] / cost["size"]
     top = cost["mean"].idxmax()
     key = [
         (
             f"{by_sev.index[-1]} claims have the highest fraud rate at "
             f"{by_sev['mean'].iloc[-1]:.1%} ({by_sev['sum'].iloc[-1]:.0f} of "
-            f"{by_sev['size'].iloc[-1]:.0f}), versus {fraud.mean():.1%} across all "
-            f"{len(df):,} selected claims."
+            f"{by_sev['size'].iloc[-1]:.0f}), versus {n_fraud / n:.1%} across all "
+            f"{n:,} selected claims."
         ),
         (
             f"{top} claims cost the most on average (${cost.loc[top, 'mean']:,.0f}) "
@@ -66,7 +102,7 @@ def insights(df: pd.DataFrame) -> dict[str, list[str]]:
         ),
     ]
 
-    daily = daily_claims(df)["claims"]
+    daily = daily["claims"]
     if len(daily) < 14:
         trends = [f"Only {len(daily)} days are selected, too few to compare periods."]
     else:
@@ -79,8 +115,10 @@ def insights(df: pd.DataFrame) -> dict[str, list[str]]:
             )
         ]
 
-    combos = df.groupby(["incident_type", "incident_severity"])["fraud_reported"]
-    combos = combos.agg(["mean", "size"])
+    combos = sev.groupby(["incident_type", "incident_severity"]).agg(
+        sum=("fraud_claims", "sum"), size=("claims", "sum")
+    )
+    combos["mean"] = combos["sum"] / combos["size"]
     combos = combos[combos["size"] >= MIN_CLAIMS]
     if combos.empty:
         watch = [
@@ -107,8 +145,8 @@ def insights(df: pd.DataFrame) -> dict[str, list[str]]:
             "or any seasonal pattern."
         ),
         (
-            f'"Fraud" is the dataset\'s `fraud_reported` label ({int(fraud.sum()):,} '
-            f"of {len(df):,} claims), not proof of fraud; every pattern here is a "
+            f'"Fraud" is the dataset\'s `fraud_reported` label ({n_fraud:,} '
+            f"of {n:,} claims), not proof of fraud; every pattern here is a "
             "correlation."
         ),
     ]
@@ -124,40 +162,42 @@ def main() -> None:
     st.set_page_config(page_title="Insurance Claims", layout="wide")
     st.title("Insurance Claims Dashboard")
     st.markdown("Claim volume, cost and reported fraud for auto insurance claims.")
-    claims = load_claims()
+    tables, rows = load_data()
+    if rows is None:
+        st.info("Demo mode: aggregated data only.")
+    totals = tables["by_state_type"]
 
     # An empty selection means "all".
     st.sidebar.header("Filters")
-    states = st.sidebar.multiselect("State", sorted(claims["incident_state"].unique()))
+    states = st.sidebar.multiselect("State", sorted(totals["incident_state"].unique()))
     types = st.sidebar.multiselect(
-        "Incident type", sorted(claims["incident_type"].unique())
+        "Incident type", sorted(totals["incident_type"].unique())
     )
-    df = claims
-    if states:
-        df = df[df["incident_state"].isin(states)]
-    if types:
-        df = df[df["incident_type"].isin(types)]
+    t = {name: select(table, states, types) for name, table in tables.items()}
+    df = t["by_state_type"]
     if df.empty:
         st.warning("No claims match these filters.")
         st.stop()
 
-    start, end = df["incident_date"].min(), df["incident_date"].max()
+    daily = daily_claims(t["by_state_type_day"])
+    start, end = daily["incident_date"].min(), daily["incident_date"].max()
+    n, all_n = df["claims"].sum(), totals["claims"].sum()
     st.caption(
         f"Incidents from {start:%b} {start.day}, {start.year} to {end:%b} {end.day}, {end.year} · "
-        f"{len(df):,} of {len(claims):,} claims"
+        f"{n:,} of {all_n:,} claims"
     )
 
-    n, cost = len(df), df["total_claim_amount"].sum()
-    rate, avg = df["fraud_reported"].mean(), df["total_claim_amount"].mean()
+    cost, all_cost = df["total_claim_amount"].sum(), totals["total_claim_amount"].sum()
+    rate, avg = df["fraud_claims"].sum() / n, cost / n
     if states or types:
         helpers = [
-            f"{n / len(claims):.1%} of all claims",
-            f"{cost / claims['total_claim_amount'].sum():.1%} of total cost",
+            f"{n / all_n:.1%} of all claims",
+            f"{cost / all_cost:.1%} of total cost",
             (
-                f"{100 * (rate - claims['fraud_reported'].mean()):+.1f} pts "
+                f"{100 * (rate - totals['fraud_claims'].sum() / all_n):+.1f} pts "
                 "vs. dataset average"
             ),
-            f"{avg / claims['total_claim_amount'].mean() - 1:+.0%} vs. dataset average",
+            f"{avg / (all_cost / all_n) - 1:+.0%} vs. dataset average",
         ]
     else:
         helpers = ["All claims", "All claims", "Dataset average", "Dataset average"]
@@ -180,7 +220,7 @@ def main() -> None:
 
     with overview:
         c1, c2 = st.columns([1, 2])
-        n_fraud = int(df["fraud_reported"].sum())
+        n_fraud = int(df["fraud_claims"].sum())
         names = ["Flagged as fraud", "Not flagged"]
         c1.plotly_chart(
             px.pie(
@@ -192,15 +232,38 @@ def main() -> None:
                 title="Share of claims flagged as fraud",
             )
         )
-        c2.plotly_chart(
-            px.box(
-                df,
-                x="incident_type",
-                y="total_claim_amount",
-                labels=LABELS,
-                title="Claim amount distribution by incident type",
+        title = "Claim amount distribution by incident type"
+        if rows is None:
+            stats = t["claim_amount_stats"]
+            box = go.Figure(
+                go.Box(
+                    x=stats["incident_type"],
+                    q1=stats["q1"],
+                    median=stats["median"],
+                    q3=stats["q3"],
+                    lowerfence=stats["p5"],
+                    upperfence=stats["p95"],
+                )
+            ).update_layout(
+                title=title,
+                xaxis_title="Incident type",
+                yaxis_title="Claim amount ($)",
             )
-        )
+            c2.plotly_chart(box)
+            c2.caption(
+                "Whiskers show the 5th to 95th percentile. In demo mode this chart "
+                "ignores the State filter."
+            )
+        else:
+            c2.plotly_chart(
+                px.box(
+                    select(rows, states, types),
+                    x="incident_type",
+                    y="total_claim_amount",
+                    labels=LABELS,
+                    title=title,
+                )
+            )
         parts = df.groupby("incident_type")[
             ["injury_claim", "property_claim", "vehicle_claim"]
         ].sum()
@@ -218,7 +281,7 @@ def main() -> None:
         c1, c2 = st.columns(2)
         c1.plotly_chart(
             ranked_bar(
-                fraud_rate_by(df, "incident_severity"),
+                fraud_rate_by(t["by_state_type_severity"], "incident_severity"),
                 "incident_severity",
                 "fraud_pct",
                 "Fraud rate by severity (%)",
@@ -232,12 +295,13 @@ def main() -> None:
                 "Fraud rate by incident type (%)",
             ).update_layout(xaxis_title="Fraud rate (%)")
         )
-        heat = df.pivot_table(
+        heat = t["by_state_type_severity"].pivot_table(
             index="incident_type",
             columns="incident_severity",
-            values="fraud_reported",
-            aggfunc="mean",
+            values=["fraud_claims", "claims"],
+            aggfunc="sum",
         )
+        heat = heat["fraud_claims"] / heat["claims"]
         heat = heat[[s for s in SEVERITIES if s in heat.columns]]
         st.plotly_chart(
             px.imshow(
@@ -255,16 +319,16 @@ def main() -> None:
         by_state = (
             df.groupby("incident_state")
             .agg(
-                claims=("total_claim_amount", "size"),
+                claims=("claims", "sum"),
                 total_cost=("total_claim_amount", "sum"),
-                avg_claim=("total_claim_amount", "mean"),
-                fraud_pct=("fraud_reported", "mean"),
+                fraud_claims=("fraud_claims", "sum"),
             )
             .reset_index()
             .sort_values("total_cost", ascending=False)
         )
-        by_state["fraud_pct"] = 100 * by_state["fraud_pct"]
+        by_state["avg_claim"] = by_state["total_cost"] / by_state["claims"]
         by_state["avg_claim"] = by_state["avg_claim"].round().astype(int)
+        by_state["fraud_pct"] = 100 * by_state.pop("fraud_claims") / by_state["claims"]
         c1, c2 = st.columns([3, 2])
         c1.plotly_chart(
             ranked_bar(
@@ -292,7 +356,7 @@ def main() -> None:
         )
 
     with trends:
-        daily = daily_claims(df).rename(
+        daily = daily.rename(
             columns={"claims": "Daily claims", "avg_14d": "2-week average"}
         )
         fig = px.line(
@@ -309,7 +373,7 @@ def main() -> None:
         st.caption("The 2-week average starts on day 14, once it has 14 days of data.")
 
     with notes:
-        for section, lines in insights(df).items():
+        for section, lines in insights(t).items():
             st.subheader(section)
             # Escape $ so Streamlit doesn't render dollar amounts as LaTeX.
             st.markdown("\n".join(f"- {line.replace('$', r'\$')}" for line in lines))
