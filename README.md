@@ -134,4 +134,4 @@ conda run -n data-analysis ruff check .
 
 ## Data and license
 
-The source is [Auto Insurance Claims Data](https://www.kaggle.com/datasets/buntyshah/auto-insurance-claims-data) on Kaggle. Its license is listed as *Unknown*, so the raw data is not included in this repo; only code and summary results are. See [DATA_SOURCES.md](DATA_SOURCES.md).
+Code: MIT (see `LICENSE`). Data: the source is [Auto Insurance Claims Data](https://www.kaggle.com/datasets/buntyshah/auto-insurance-claims-data) on Kaggle. Its license is listed as *Unknown*, so the raw data is not included in this repo; only code and summary results are. See [DATA_SOURCES.md](DATA_SOURCES.md).
